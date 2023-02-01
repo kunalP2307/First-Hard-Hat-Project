@@ -14,8 +14,9 @@ contract Token {
         balances[owner] = totalSupply;
     }
 
-    function tranfer(address _to, uint ammount) external{
-
+    function transfer(address _to, uint ammount) external{
+        balances[owner] -= ammount;
+        balances[_to] += ammount;
     }
 
     function balanceOf(address _of) external view returns(uint){
